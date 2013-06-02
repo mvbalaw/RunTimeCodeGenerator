@@ -16,3 +16,4 @@ TestResult.xml
 CommonAssemblyInfo.cs
 dist/
 !tools/NUnit/bin
+dist.bat
