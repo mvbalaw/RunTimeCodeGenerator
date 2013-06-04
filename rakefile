@@ -2,7 +2,7 @@ require 'albacore'
 
 PRODUCT_NAME = "RunTimeCodeGenerator"
 CLR_TOOLS_VERSION = "v4.0.30319"
-DEFAULT_BUILD_NUMBER = "0.0.0"
+DEFAULT_BUILD_NUMBER = "1.0.0"
 COMPANY_NAME = "MVBA, P.C."
 COPYRIGHT = "MVBA, P.C. (c) 2009-2013"
 ARTIFACTS = File.expand_path("dist")
@@ -108,7 +108,6 @@ zip :archive do |zip|
   zip.output_path = [settings[:artifacts]]
   puts "Artifacts are available in the artifact folder: #{settings[:artifacts]}"
 end
-
 
 def copy_output_files(fromDir, filePattern, outDir)
   Dir.glob(File.join(fromDir, filePattern)){|file| 		
