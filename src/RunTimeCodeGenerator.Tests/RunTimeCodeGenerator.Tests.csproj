@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RunTimeCodeGenerator.Tests</RootNamespace>
     <AssemblyName>RunTimeCodeGenerator.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
@@ -42,9 +45,9 @@
     <Compile Include="AssemblyGeneration\AssemblyGeneratorTests.cs" />
     <Compile Include="ClassGeneration\ClassFileGeneratorTests.cs" />
     <Compile Include="ClassGeneration\ClassFileWriterTests.cs" />
-    <Compile Include="ClassGeneration\ClassWithMethodsWithParameters.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
+    <Content Include="ClassGeneration\ClassWithMethodsWithParameters">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Logging\FileListenerTests.cs" />
     <Compile Include="Logging\LoggerTests.cs" />
     <Compile Include="Logging\LogTests.cs" />
@@ -58,12 +61,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassGeneration\ClassWithMethods.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="ClassGeneration\ClassWithProperties.cs">
+    <Content Include="ClassGeneration\ClassWithMethods">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
+    <Content Include="ClassGeneration\ClassWithProperties">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

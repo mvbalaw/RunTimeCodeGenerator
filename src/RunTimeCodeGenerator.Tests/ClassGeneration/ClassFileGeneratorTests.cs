@@ -1,3 +1,13 @@
+//  * **************************************************************************
+//  * Copyright (c) McCreary, Veselka, Bragg & Allen, P.C.
+//  * This source code is subject to terms and conditions of the MIT License.
+//  * A copy of the license can be found in the License.txt file
+//  * at the root of this distribution. 
+//  * By using this source code in any fashion, you are agreeing to be bound by 
+//  * the terms of the MIT License.
+//  * You must not remove this notice from this software.
+//  * **************************************************************************
+
 using System.IO;
 
 using NUnit.Framework;
@@ -12,19 +22,18 @@ namespace RunTimeCodeGenerator.Tests.ClassGeneration
 		{
 			public bool Compare(string file1, string file2)
 			{
-				using (FileStream fileStream1 = File.OpenRead(file1))
+				using (var fileStream1 = new StreamReader(File.OpenRead(file1)))
 				{
-					using (FileStream fileStream2 = File.OpenRead(file2))
+					using (var fileStream2 = new StreamReader(File.OpenRead(file2)))
 					{
-						if (fileStream1.Length != fileStream2.Length)
+						string line1;
+						string line2;
+						do
 						{
-							return false;
-						}
-						while (fileStream1.ReadByte() != fileStream2.ReadByte())
-						{
-							return false;
-						}
-						return true;
+							line1 = fileStream1.ReadLine();
+							line2 = fileStream2.ReadLine();
+						} while ((line1 != null || line2 != null) && line1 == line2);
+						return line1 == null && line2 == null;
 					}
 				}
 			}
@@ -45,11 +54,11 @@ namespace RunTimeCodeGenerator.Tests.ClassGeneration
 				_classAttributes.Namespace = "TestNamespace";
 
 				_method = new Method
-					{
-						Name = "TestMethod",
-						ReturnType = "string",
-						AccessLevel = AccessLevel.Public
-					};
+				          {
+					          Name = "TestMethod",
+					          ReturnType = "string",
+					          AccessLevel = AccessLevel.Public
+				          };
 				_method.Body.Add("string variable = \"Test\";");
 				_method.Body.Add("Console.WriteLine(\"Hello\");");
 				_method.Body.Add("return variable;");
@@ -69,7 +78,7 @@ namespace RunTimeCodeGenerator.Tests.ClassGeneration
 			{
 				_classGenerator.Create(_classAttributes);
 
-				string fileName = _classAttributes.FullName;
+				var fileName = _classAttributes.FullName;
 				Assert.IsTrue(File.Exists(fileName));
 				Assert.IsTrue(new FileComparer().Compare(fileName, TestData.ClassWithMethods));
 			}
@@ -82,7 +91,7 @@ namespace RunTimeCodeGenerator.Tests.ClassGeneration
 
 				_classGenerator.Create(_classAttributes);
 
-				string fileName = _classAttributes.FullName;
+				var fileName = _classAttributes.FullName;
 				Assert.IsTrue(File.Exists(fileName));
 				Assert.IsTrue(new FileComparer().Compare(fileName, TestData.ClassWithMethodsWithParameters));
 			}
@@ -116,7 +125,7 @@ namespace RunTimeCodeGenerator.Tests.ClassGeneration
 			{
 				_classGenerator.Create(_classAttributes);
 
-				string fileName = _classAttributes.FullName;
+				var fileName = _classAttributes.FullName;
 				Assert.IsTrue(File.Exists(fileName));
 				Assert.IsTrue(new FileComparer().Compare(fileName, TestData.ClassWithProperties));
 			}

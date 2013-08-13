@@ -25,7 +25,7 @@ namespace RunTimeCodeGenerator.Tests.Logging
                 var fileListener = new FileListener(TestData.LogFile);
                 fileListener.Writeline(MessageType.Error, message);
                 Assert.IsTrue(File.Exists(TestData.LogFile));
-                File.ReadAllText(TestData.LogFile).Equals(expectedMessage);
+                Assert.AreEqual(File.ReadAllText(TestData.LogFile), expectedMessage);
             }
         }
     }
