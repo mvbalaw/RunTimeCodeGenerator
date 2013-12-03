@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunTimeCodeGenerator", "RunTimeCodeGenerator\RunTimeCodeGenerator.csproj", "{5D7D3A25-2527-4AEF-BCED-F13E1E2652F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunTimeCodeGenerator.Tests", "RunTimeCodeGenerator.Tests\RunTimeCodeGenerator.Tests.csproj", "{C41146AA-68F7-4BFF-9CD7-D3AC42135768}"
