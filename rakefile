@@ -94,6 +94,9 @@ task :copy_artifacts => [:build] do
   copy_output_files "src/#{PRODUCT_NAME}/bin/#{settings[:compile_target]}", "*.{dll,pdb,exe}", settings[:stage]
   copy_output_files "src/#{PRODUCT_NAME}.Tests/bin/#{settings[:compile_target]}", "*.{dll,pdb,exe}", settings[:stage]
   copy_output_files "src/#{PRODUCT_NAME}.Tests/bin/#{settings[:compile_target]}/ClassGeneration", "*", "#{settings[:stage]}/ClassGeneration"
+  FileUtils.cp_r "License.txt", "#{settings[:stage]}/#{PRODUCT_NAME}.License.txt"
+  FileUtils.cp_r "Provenance.txt", "#{settings[:stage]}/#{PRODUCT_NAME}.Provenance.txt"   
+
 end
 
 desc "Prepares the working directory for a new build"
