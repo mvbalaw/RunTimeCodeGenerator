@@ -2,9 +2,9 @@ using System;
 
 namespace RunTimeCodeGenerator.Logging
 {
-    public class LogFactory : ILogFactory
+    public static class LogFactory
     {
-        public ILogger Create(Type type)
+        public static Logger Create(Type type)
         {
             // All types get both console and file logging
             var logger = new Logger(type.Name);

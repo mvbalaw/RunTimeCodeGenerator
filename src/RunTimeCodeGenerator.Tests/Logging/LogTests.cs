@@ -16,7 +16,7 @@ namespace RunTimeCodeGenerator.Tests.Logging
             [SetUp]
             public void SetUp()
             {
-                BootStrapper.Reset();
+                Bootstrapper.Reset();
             }
 
             [Test]

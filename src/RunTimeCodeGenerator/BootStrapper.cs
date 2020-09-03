@@ -2,22 +2,19 @@ using StructureMap;
 
 namespace RunTimeCodeGenerator
 {
-    public class BootStrapper
+    public static class Bootstrapper
     {
         private static bool _initialized;
 
-        public static void Initialize()
+        private static void Initialize()
         {
-            ObjectFactory.Initialize(x => x.AddRegistry(new RunTimeCodeGeneratorRegistry()));
+	        // ReSharper disable once UnusedVariable
+	        var container = new Container(new RunTimeCodeGeneratorRegistry());
         }
 
         public static void Reset()
         {
-            if (_initialized)
-            {
-                ObjectFactory.ResetDefaults();
-            }
-            else
+            if (!_initialized)
             {
                 Initialize();
                 _initialized = true;

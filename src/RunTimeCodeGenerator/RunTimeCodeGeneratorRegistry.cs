@@ -1,10 +1,7 @@
 using RunTimeCodeGenerator.ClassGeneration;
-
-using StructureMap.Configuration.DSL;
-
 namespace RunTimeCodeGenerator
 {
-    public class RunTimeCodeGeneratorRegistry : Registry
+    public class RunTimeCodeGeneratorRegistry : StructureMap.Registry
     {
         public RunTimeCodeGeneratorRegistry()
         {

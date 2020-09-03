@@ -28,7 +28,7 @@ namespace RunTimeCodeGenerator.Tests.AssemblyGeneration
             [SetUp]
             public void SetUp()
             {
-                BootStrapper.Reset();
+                Bootstrapper.Reset();
 
                 const string nameSpace = "Assembly.User";
 
