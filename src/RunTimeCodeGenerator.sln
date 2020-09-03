@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunTimeCodeGenerator", "RunTimeCodeGenerator\RunTimeCodeGenerator.csproj", "{5D7D3A25-2527-4AEF-BCED-F13E1E2652F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunTimeCodeGenerator.Tests", "RunTimeCodeGenerator.Tests\RunTimeCodeGenerator.Tests.csproj", "{C41146AA-68F7-4BFF-9CD7-D3AC42135768}"
@@ -22,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85249A36-1B4C-4552-94DE-6249D5AD0E80}
 	EndGlobalSection
 EndGlobal
